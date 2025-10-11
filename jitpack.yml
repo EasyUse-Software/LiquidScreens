@@ -4,4 +4,4 @@ before_install:
   - sdk install java 17.0.6-tem
   - sdk use java 17.0.6-tem
 install:
-  - ./gradlew :reimagined:publishToMavenLocal :reimagined-hilt:publishToMavenLocal :reimagined-material3:publishToMavenLocal
+  - ./gradlew :reimagined:publishToMavenLocal :reimagined-hilt:publishToMavenLocal :reimagined-material3:publishToMavenLocal -x :sample:build -x :samples-di:anvil:build -x :samples-di:dagger:build -x :samples-di:hilt-assistedInject:build -x :samples-di:hilt-hiltViewModel:build -x :samples-di:koin:build
