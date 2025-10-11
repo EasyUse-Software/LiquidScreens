@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import dev.olshevski.navigation.reimagined.BaseNavHost
 import dev.olshevski.navigation.reimagined.ComponentsProvider
 import dev.olshevski.navigation.reimagined.ExperimentalReimaginedApi
@@ -51,6 +52,7 @@ fun <T, S> CommonBottomSheetNavHost(
     state = rememberScopingNavHostState(backstack, scopeSpec),
     transitionQueueing = NavTransitionQueueing.ConflateQueued
 ) { snapshot ->
+    val density = LocalDensity.current
     val targetSnapshot by rememberUpdatedState(snapshot)
     var currentSnapshot by remember { mutableStateOf(targetSnapshot) }
     var isTransitionAnimating by remember { mutableStateOf(false) }
@@ -75,7 +77,8 @@ fun <T, S> CommonBottomSheetNavHost(
                         BottomSheetState(
                             hostEntryId = lastEntry.id,
                             initialValue = savedState.value,
-                            sheetProperties = sheetPropertiesSpec.getBottomSheetProperties(lastEntry.destination)
+                            sheetProperties = sheetPropertiesSpec.getBottomSheetProperties(lastEntry.destination),
+                            density = density
                         )
                     )
                 } else {
@@ -95,7 +98,8 @@ fun <T, S> CommonBottomSheetNavHost(
                     } else {
                         BottomSheetValue.HalfExpanded
                     },
-                    sheetProperties = sheetProperties
+                    sheetProperties = sheetProperties,
+                    density = density
                 )
             }
         )
@@ -115,9 +119,9 @@ fun <T, S> CommonBottomSheetNavHost(
         Scrim(
             color = scrimColor,
             onDismissRequest = {
-                if (sheetState?.swipeableState?.confirmValueChange?.invoke(BottomSheetValue.Hidden) == true) {
-                    onDismissRequest()
-                }
+                // Simply call onDismissRequest - confirmValueChange is now internal
+                // and will be handled by the state itself
+                onDismissRequest()
             },
             visible = isScrimVisible
         )
@@ -153,13 +157,14 @@ fun <T, S> CommonBottomSheetNavHost(
                     BottomSheetState(
                         hostEntryId = lastEntry.id,
                         initialValue = BottomSheetValue.Hidden,
-                        sheetProperties = sheetPropertiesSpec.getBottomSheetProperties(lastEntry.destination)
+                        sheetProperties = sheetPropertiesSpec.getBottomSheetProperties(lastEntry.destination),
+                        density = density
                     )
                 }
 
                 sheetState?.let { sheetState ->
                     // wait until anchors are calculated
-                    snapshotFlow { sheetState.swipeableState.anchors }.filter { it.isNotEmpty() }
+                    snapshotFlow { sheetState.anchoredDraggableState.anchors.size }.filter { it > 0 }
                         .first()
                     sheetState.show()
                 }
