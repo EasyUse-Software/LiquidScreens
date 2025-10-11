@@ -1,6 +1,7 @@
 plugins {
     `android-library-config`
     `publishing-config`
+    `kotlin-parcelize`
 }
 
 android {
@@ -8,6 +9,7 @@ android {
 }
 
 dependencies {
-    api(projects.reimaginedMaterialCommon)
+    api(projects.reimagined)
+    api(libs.compose.foundation)
     api(libs.compose.material3)
 }

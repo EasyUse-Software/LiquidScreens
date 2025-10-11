@@ -6,9 +6,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
-import androidx.compose.material.ModalBottomSheetDefaults
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import dev.olshevski.navigation.reimagined.NavBackHandler
-import dev.olshevski.navigation.reimagined.material.BottomSheetNavHost
-import dev.olshevski.navigation.reimagined.material.BottomSheetNavHostScope
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue
+import dev.olshevski.navigation.reimagined.material3.BottomSheetNavHost
+import dev.olshevski.navigation.reimagined.material3.BottomSheetNavHostScope
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue
 import dev.olshevski.navigation.reimagined.navigate
 import dev.olshevski.navigation.reimagined.pop
 import dev.olshevski.navigation.reimagined.popAll
@@ -72,7 +71,7 @@ fun BottomSheetNavHostScreen() = Box {
         val shapeRadius by animateDpAsState(if (sheetState.isFullyExpanded) 0.dp else 16.dp)
         Surface(
             shape = RoundedCornerShape(topStart = shapeRadius, topEnd = shapeRadius),
-            elevation = ModalBottomSheetDefaults.Elevation
+            shadowElevation = 8.dp
         ) {
             when (destination) {
                 BottomSheetDestination.First -> FirstBottomSheet(

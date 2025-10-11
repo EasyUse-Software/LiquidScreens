@@ -1,4 +1,4 @@
-package dev.olshevski.navigation.reimagined.material
+package dev.olshevski.navigation.reimagined.material3
 
 import android.os.Parcelable
 import androidx.compose.foundation.MutatePriority

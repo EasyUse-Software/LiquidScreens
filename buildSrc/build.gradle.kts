@@ -19,6 +19,7 @@ tasks.withType<KotlinCompile> {
 dependencies {
     implementation(libs.android.gradle.plugin)
     implementation(libs.kotlin.gradle.plugin)
+    implementation(libs.kotlin.compose.compiler.plugin)
 
     // version catalog access from precompiled scripts
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))

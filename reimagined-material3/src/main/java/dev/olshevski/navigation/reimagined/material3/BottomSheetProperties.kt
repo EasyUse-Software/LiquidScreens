@@ -1,9 +1,9 @@
-package dev.olshevski.navigation.reimagined.material
+package dev.olshevski.navigation.reimagined.material3
 
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.runtime.Immutable
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue.Expanded
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue.Hidden
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Expanded
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Hidden
 
 /**
  * Bottom sheet properties.

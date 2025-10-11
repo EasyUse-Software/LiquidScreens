@@ -21,8 +21,6 @@ rootProject.name = "compose-navigation-reimagined"
 include(":test-utils")
 include(":reimagined")
 include(":reimagined-hilt")
-include(":reimagined-material-common")
-include(":reimagined-material")
 include(":reimagined-material3")
 include(":sample")
 include(":samples-di:anvil")

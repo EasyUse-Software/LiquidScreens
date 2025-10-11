@@ -13,12 +13,6 @@ import dev.olshevski.navigation.reimagined.NavController
 import dev.olshevski.navigation.reimagined.NavHost
 import dev.olshevski.navigation.reimagined.NavScopeSpec
 import dev.olshevski.navigation.reimagined.ScopingNavHost
-import dev.olshevski.navigation.reimagined.material.BottomSheetNavHostScope
-import dev.olshevski.navigation.reimagined.material.BottomSheetProperties
-import dev.olshevski.navigation.reimagined.material.BottomSheetPropertiesSpec
-import dev.olshevski.navigation.reimagined.material.CommonBottomSheetNavHost
-import dev.olshevski.navigation.reimagined.material.DefaultBottomSheetPropertiesSpec
-import dev.olshevski.navigation.reimagined.material.ScopingBottomSheetNavHostScope
 import dev.olshevski.navigation.reimagined.pop
 import dev.olshevski.navigation.reimagined.popAll
 

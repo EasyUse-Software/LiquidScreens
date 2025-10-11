@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     `android-library`
     `kotlin-android`
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
@@ -30,10 +31,6 @@ android {
         compose = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
     testOptions {
         targetSdk = libs.versions.android.sdk.target.get().toInt()
         unitTests.all {
@@ -49,7 +46,7 @@ kotlin {
 }
 
 dependencies {
-    testImplementation(libs.junit.juniper)
+    testImplementation(libs.junit.jupiter)
     testImplementation(libs.truth)
 
     androidTestImplementation(platform(libs.compose.bom))

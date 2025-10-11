@@ -107,17 +107,13 @@ Full documentation is available [here](https://olshevski.github.io/compose-navig
 
 Library-specific `hiltViewModel()` implementation:
 
-```koltin
+```kotlin
 implementation("dev.olshevski.navigation:reimagined-hilt:<latest-version>")
 ```
 
-`BottomSheetNavHost` implementation:
+`BottomSheetNavHost` implementation for Material 3:
 
-```koltin
-// if you are using Material
-implementation("dev.olshevski.navigation:reimagined-material:<latest-version>")
-
-// if you are using Material 3
+```kotlin
 implementation("dev.olshevski.navigation:reimagined-material3:<latest-version>")
 ```
 

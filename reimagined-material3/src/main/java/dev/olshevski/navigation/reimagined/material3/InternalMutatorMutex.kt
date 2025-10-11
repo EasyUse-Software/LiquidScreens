@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.olshevski.navigation.reimagined.material
+package dev.olshevski.navigation.reimagined.material3
 
 import androidx.compose.foundation.MutatePriority
 import androidx.compose.runtime.Stable

@@ -17,7 +17,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(projects.reimaginedMaterial)
+    implementation(projects.reimaginedMaterial3)
     implementation(libs.compose.material.icons.extended)
     androidTestImplementation(projects.testUtils)
 }

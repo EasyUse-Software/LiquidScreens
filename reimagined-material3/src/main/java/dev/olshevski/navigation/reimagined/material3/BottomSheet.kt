@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.olshevski.navigation.reimagined.material
+package dev.olshevski.navigation.reimagined.material3
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.core.AnimationSpec
@@ -58,9 +58,9 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import dev.olshevski.navigation.reimagined.NavId
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue.Expanded
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue.HalfExpanded
-import dev.olshevski.navigation.reimagined.material.BottomSheetValue.Hidden
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Expanded
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.HalfExpanded
+import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Hidden
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import kotlin.math.max
