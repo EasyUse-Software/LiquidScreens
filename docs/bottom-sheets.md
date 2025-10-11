@@ -44,7 +44,7 @@ fun NavHostScreen() {
         onDismissRequest = { sheetController.pop() }
     ) { destination ->
         Surface(
-            elevation = ModalBottomSheetDefaults.Elevation
+            shadowElevation = 8.dp
         ) {
             when (destination) {
                 SheetDestination.First -> { /* ... */ }
