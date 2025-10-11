@@ -12,3 +12,6 @@ local.properties
 *.iml
 !.idea/codeStyles
 !.idea/inspectionProfiles
+
+CLAUDE.md
+.claude/
