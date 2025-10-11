@@ -1,6 +1,8 @@
-<p align="center">
-    <img width="600" src="https://user-images.githubusercontent.com/5606565/234915659-afe98551-5439-4381-aab5-5147fcb8e079.svg" />
-</p>
+Full Documentation: https://easyusesoft.github.io/LiquidScreens/
+
+## This is a maintained fork of 'Compose Navigation Reimagined', which I found to be an awesome navigation library for Jetpack Compose. I stripped material 2 and only kept material3 for low maintainence overhead. I have replaced deprecated apis in favor of newer apis and updated the packages to match with current jetpack compose library suite. If you want to support the original author, buy him a coffee!
+
+<p align="center"><a href="https://www.buymeacoffee.com/olshevski" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60px"></a></p>
 
 A small and simple, yet fully fledged and customizable navigation library for [Jetpack Compose](https://developer.android.com/jetpack/compose):
 
@@ -139,7 +141,3 @@ I hope it can help you as well.
 <p align="center">
     <img width="600" src="https://user-images.githubusercontent.com/5606565/227801130-39bee5cf-cf75-47c1-8791-f7753b5c7c0d.svg" />
 </p>
-
-*If you like this library and find it useful, please star the project and share it with your fellow developers. You can also buy me a coffee:*
-
-<p align="center"><a href="https://www.buymeacoffee.com/olshevski" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60px"></a></p>
