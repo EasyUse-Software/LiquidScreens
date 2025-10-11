@@ -23,6 +23,7 @@ inline fun <reified VM : ViewModel> paramViewModel(
 ) {
     when (factoryParam) {
         ViewModelFactoryParam.Legacy -> {
+            @Suppress("DEPRECATION")
             viewModel(
                 viewModelStoreOwner = viewModelStoreOwner,
                 factory = object :

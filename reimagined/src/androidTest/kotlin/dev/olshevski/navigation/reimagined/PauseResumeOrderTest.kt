@@ -20,7 +20,7 @@ class PauseResumeOrderTest(private val param: NavHostParam) {
     companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{0}")
-        fun data() = NavHostParam.values().asList()
+        fun data() = NavHostParam.entries
     }
 
     @get:Rule

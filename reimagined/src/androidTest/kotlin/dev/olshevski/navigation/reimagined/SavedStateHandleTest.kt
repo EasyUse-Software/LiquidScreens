@@ -35,8 +35,8 @@ class SavedStateHandleTest(
         @JvmStatic
         @Parameterized.Parameters(name = "{0}, {1}")
         fun data() = cartesianProduct(
-            NavHostParam.values(),
-            ViewModelFactoryParam.values()
+            NavHostParam.entries.toTypedArray(),
+            ViewModelFactoryParam.entries.toTypedArray()
         )
     }
 
@@ -94,7 +94,7 @@ class SavedStateHandleTest(
             setContent {
                 screenController = rememberNavController(Screen.A)
                 @OptIn(ExperimentalReimaginedApi::class)
-                screenState = rememberNavHostState(screenController.backstack,)
+                screenState = rememberNavHostState(screenController.backstack)
                 ParamNavHost(hostParam, screenState) { screen ->
                     paramViewModel(
                         factoryParam = factoryParam,

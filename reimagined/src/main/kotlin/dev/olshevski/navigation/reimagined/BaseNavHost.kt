@@ -147,7 +147,7 @@ private fun <T, S> enqueueSnapshotTransition(
     DisposableEffect(currentSnapshot) {
         onDispose {
             if (queue.isNotEmpty()) {
-                queue.removeFirst()
+                queue.removeAt(0)
             }
         }
     }

@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
-import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.platform.LocalSavedStateRegistryOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.savedstate.compose.LocalSavedStateRegistryOwner
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 
@@ -26,6 +26,7 @@ class NavSnapshot<out T, S> internal constructor(
 
 }
 
+@ConsistentCopyVisibility
 @Stable
 data class NavSnapshotItem<out T, S> internal constructor(
     val hostEntry: NavHostEntry<T>,
