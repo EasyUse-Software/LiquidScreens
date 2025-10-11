@@ -61,6 +61,7 @@ import dev.olshevski.navigation.reimagined.NavId
 import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Expanded
 import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.HalfExpanded
 import dev.olshevski.navigation.reimagined.material3.BottomSheetValue.Hidden
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource.Companion.UserInput
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 import kotlin.math.max
@@ -436,7 +437,7 @@ private fun ConsumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
 ): NestedScrollConnection = object : NestedScrollConnection {
     override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
         val delta = available.toFloat()
-        return if (delta < 0 && source == NestedScrollSource.Drag) {
+        return if (delta < 0 && source == UserInput) {
             state.dispatchRawDelta(delta).toOffset()
         } else {
             Offset.Zero
@@ -448,7 +449,7 @@ private fun ConsumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
         available: Offset,
         source: NestedScrollSource
     ): Offset {
-        return if (source == NestedScrollSource.Drag) {
+        return if (source == UserInput) {
             state.dispatchRawDelta(available.toFloat()).toOffset()
         } else {
             Offset.Zero
