@@ -32,7 +32,8 @@ koin-compose = "io.insert-koin:koin-androidx-compose:4.1.1"
 
 # test libraries
 espresso-core = "androidx.test.espresso:espresso-core:3.7.0"
-junit-jupiter = "org.junit.jupiter:junit-jupiter:5.11.4"
+junit-jupiter = "org.junit.jupiter:junit-jupiter:6.0.0"
+junit-platform-launcher = "org.junit.platform:junit-platform-launcher:2.0.0"
 test-runner = "androidx.test:runner:1.7.0"
 truth = "com.google.truth:truth:1.4.5"
 
