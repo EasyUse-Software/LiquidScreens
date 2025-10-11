@@ -1,7 +1,7 @@
 package dev.olshevski.navigation.reimagined.sample.ui
 
-import android.app.Activity
 import android.net.Uri
+import androidx.activity.compose.LocalActivity
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -9,7 +9,6 @@ import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.platform.LocalContext
 import dev.olshevski.navigation.reimagined.AnimatedNavHost
 import dev.olshevski.navigation.reimagined.NavBackHandler
 import dev.olshevski.navigation.reimagined.NavTransitionSpec
@@ -48,7 +47,7 @@ private val MainNavHostTransitionSpec =
 
 @Composable
 fun MainScreen() {
-    val activity = LocalContext.current as Activity
+    val activity = LocalActivity.current!!
     val navController = rememberSaveable {
         val uri = activity.intent.data
         val initialBackstack = when {

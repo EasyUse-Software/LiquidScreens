@@ -1,7 +1,7 @@
 package dev.olshevski.navigation.reimagined.sample.ui.demo
 
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.window.Dialog

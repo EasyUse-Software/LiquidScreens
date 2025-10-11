@@ -2,9 +2,9 @@ package dev.olshevski.navigation.reimagined.sample.ui.demo
 
 import android.os.Parcelable
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalUriHandler
@@ -80,7 +80,7 @@ private fun FirstScreen(
     val uri = "https://olshevski.dev/deeplinks"
     ClickableText(
         text = AnnotatedString(uri),
-        style = MaterialTheme.typography.body1.copy(
+        style = MaterialTheme.typography.bodyLarge.copy(
             color = Color.Blue,
             textDecoration = TextDecoration.Underline
         )

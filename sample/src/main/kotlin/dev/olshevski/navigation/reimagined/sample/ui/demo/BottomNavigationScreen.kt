@@ -3,12 +3,12 @@ package dev.olshevski.navigation.reimagined.sample.ui.demo
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Button
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AccountTree
 import androidx.compose.material.icons.outlined.Home
@@ -83,10 +83,10 @@ fun BottomNavigationScreen() = ScreenLayout(
         }
 
         val lastDestination = navController.backstack.entries.last().destination
-        BottomNavigation {
+        NavigationBar {
             BottomDestination.values().forEach { destination ->
                 val title = stringResource(destination.title)
-                BottomNavigationItem(
+                NavigationBarItem(
                     label = { Text(title) },
                     icon = {
                         Icon(

@@ -8,10 +8,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Card
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,9 +30,9 @@ fun ScreenLayout(
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .padding(16.dp),
-        style = MaterialTheme.typography.h5
+        style = MaterialTheme.typography.headlineSmall
     )
-    Divider()
+    HorizontalDivider(Modifier, DividerDefaults.Thickness, DividerDefaults.color)
     content()
 }
 
@@ -52,7 +53,7 @@ fun ContentLayout(
         Text(
             text = title,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h6
+            style = MaterialTheme.typography.headlineSmall
         )
     }
     content()
@@ -74,7 +75,7 @@ fun DialogLayout(
         Text(
             text = title,
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.h6
+            style = MaterialTheme.typography.headlineSmall
         )
         content()
     }
@@ -96,7 +97,7 @@ fun BottomSheetLayout(
     Text(
         text = title,
         textAlign = TextAlign.Center,
-        style = MaterialTheme.typography.h6
+        style = MaterialTheme.typography.headlineSmall
     )
     content()
 }
