@@ -207,7 +207,8 @@ class BottomSheetState internal constructor(
      */
     @Suppress("unused")
     val isFullyExpanded: Boolean by derivedStateOf {
-        offset <= 0
+        val currentOffset = anchoredDraggableState.offset
+        !currentOffset.isNaN() && currentOffset.roundToInt() <= 0
     }
 
     /**
