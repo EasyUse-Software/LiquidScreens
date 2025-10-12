@@ -58,9 +58,11 @@ afterEvaluate {
 }
 
 signing {
-    useInMemoryPgpKeys(
-        project.properties["signing.key"].toString(),
-        project.properties["signing.password"].toString(),
-    )
-    sign(publishing.publications)
+    val signingKey = project.properties["signing.key"]?.toString()
+    val signingPassword = project.properties["signing.password"]?.toString()
+
+    if (signingKey != null && signingPassword != null) {
+        useInMemoryPgpKeys(signingKey, signingPassword)
+        sign(publishing.publications)
+    }
 }
