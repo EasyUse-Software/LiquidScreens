@@ -1,8 +1,13 @@
+## LiquidScreens, A maintained fork of Compose Navigation Reimagined
+
+
+### This is a maintained fork of [Compose Navigation Reimagined](https://github.com/olshevski/compose-navigation-reimagined), only material3 is kept for low maintainence overhead. Deprecated apis are replaced in favor of newer apis and updated the packages to match with current jetpack compose library suite.
+
 Full Documentation: https://easyusesoft.github.io/LiquidScreens/
 
-## This is a maintained fork of 'Compose Navigation Reimagined', which I found to be an awesome navigation library for Jetpack Compose. I stripped material 2 and only kept material3 for low maintainence overhead. I have replaced deprecated apis in favor of newer apis and updated the packages to match with current jetpack compose library suite. If you want to support the original author, buy him a coffee!
+## Demo
 
-<p align="center"><a href="https://www.buymeacoffee.com/olshevski" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60px"></a></p>
+https://github.com/user-attachments/assets/7aa2b9af-6ba6-4086-aff6-147bf40b2b0d
 
 A small and simple, yet fully fledged and customizable navigation library for [Jetpack Compose](https://developer.android.com/jetpack/compose):
 
@@ -149,13 +154,3 @@ Explore the [sample](https://github.com/easyusesoft/LiquidScreens/tree/main/samp
 - entry-scoped and shared ViewModels
 - hoisting of NavController to the ViewModel layer
 - deeplinks
-
-## About
-
-I've been thinking about Android app architecture and navigation in particular for the longest time. After being introduced to Compose I could finally create the navigation structure that satisfies all my needs perfectly.
-
-I hope it can help you as well.
-
-<p align="center">
-    <img width="600" src="https://user-images.githubusercontent.com/5606565/227801130-39bee5cf-cf75-47c1-8791-f7753b5c7c0d.svg" />
-</p>
