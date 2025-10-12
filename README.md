@@ -17,10 +17,28 @@ A small and simple, yet fully fledged and customizable navigation library for [J
 
 ## Quick start
 
-Add a single dependency to your project:
+### Installation via JitPack
+
+**Step 1.** Add the JitPack repository to your build file
+
+Add it in your root `settings.gradle` at the end of repositories:
 
 ```kotlin
-implementation("dev.olshevski.navigation:reimagined:1.5.0")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+**Step 2.** Add the dependency
+
+```kotlin
+dependencies {
+    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.1.2'
+}
 ```
 
 Define a set of destinations. It is convenient to use a sealed class for this:
@@ -103,25 +121,25 @@ AnimatedNavHost(
 
 ## Documentation
 
-Full documentation is available [here](https://olshevski.github.io/compose-navigation-reimagined).
+Full documentation is available [here](https://easyusesoft.github.io/LiquidScreens).
 
 ## Additional dependencies
 
 Library-specific `hiltViewModel()` implementation:
 
 ```kotlin
-implementation("dev.olshevski.navigation:reimagined-hilt:<latest-version>")
+implementation 'com.github.easyusesoft.LiquidScreens:reimagined-hilt:0.1.2'
 ```
 
 `BottomSheetNavHost` implementation for Material 3:
 
 ```kotlin
-implementation("dev.olshevski.navigation:reimagined-material3:<latest-version>")
+implementation 'com.github.easyusesoft.LiquidScreens:reimagined-material3:0.1.2'
 ```
 
 ## Sample
 
-Explore the [sample](https://github.com/olshevski/compose-navigation-reimagined/tree/main/sample). It demonstrates:
+Explore the [sample](https://github.com/easyusesoft/LiquidScreens/tree/main/sample). It demonstrates:
 
 - passing values and returning results
 - animated transitions
