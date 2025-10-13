@@ -46,6 +46,5 @@ kotlin-compose-compiler-plugin = "org.jetbrains.kotlin:compose-compiler-gradle-p
 anvil = { id = "com.squareup.anvil", version = "2.7.0" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
-nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
 versions = { id = "com.github.ben-manes.versions", version = "0.53.0" }
 versions-config = { id = "dev.olshevski.versions", version = "1.0.5" }
