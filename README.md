@@ -1,5 +1,5 @@
 ## LiquidScreens, A maintained fork of Compose Navigation Reimagined
-
+![Monthly download statistics](https://jitpack.io/v/easyusesoft/LiquidScreens/month.svg)
 
 ### This is a maintained fork of [Compose Navigation Reimagined](https://github.com/olshevski/compose-navigation-reimagined), only material3 is kept for low maintainence overhead. Deprecated apis are replaced in favor of newer apis and updated the packages to match with current jetpack compose library suite.
 
