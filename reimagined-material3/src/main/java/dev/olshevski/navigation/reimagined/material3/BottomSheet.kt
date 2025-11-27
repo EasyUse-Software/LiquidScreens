@@ -390,8 +390,9 @@ internal fun BottomSheetLayout(
                         }
                     }
                 },
-            content = sheetContent
-        )
+        ) {
+            sheetContent()
+        }
     }
 }
 

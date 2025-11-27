@@ -47,8 +47,7 @@ class NavId internal constructor(private val uuid: UUID = UUID.randomUUID()) : P
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
         other as NavId
-        if (uuid != other.uuid) return false
-        return true
+        return uuid == other.uuid
     }
 
     override fun hashCode() = uuid.hashCode()
