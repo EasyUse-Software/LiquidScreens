@@ -4,6 +4,7 @@ plugins {
     `android-library`
     `kotlin-android`
     id("org.jetbrains.kotlin.plugin.compose")
+    `maven-publish`
 }
 
 android {
@@ -31,6 +32,12 @@ android {
         compose = true
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
+
     testOptions {
         targetSdk = libs.versions.android.sdk.target.get().toInt()
         unitTests.all {
@@ -55,4 +62,17 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit4)
     androidTestImplementation(libs.compose.ui.test.manifest)
     androidTestImplementation(libs.truth)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = project.group.toString()
+                artifactId = project.name
+                version = project.version.toString()
+            }
+        }
+    }
 }
