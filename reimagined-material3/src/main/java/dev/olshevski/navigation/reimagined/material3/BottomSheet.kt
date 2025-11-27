@@ -31,7 +31,6 @@ import androidx.compose.foundation.gestures.animateTo
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -42,7 +41,6 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -52,6 +50,7 @@ import androidx.compose.ui.input.nestedscroll.NestedScrollSource
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource.Companion.UserInput
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.SubcomposeLayout
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.collapse
@@ -316,82 +315,87 @@ internal fun BottomSheetLayout(
 ) {
     val scope = rememberCoroutineScope()
 
-    BoxWithConstraints(modifier.fillMaxSize()) {
+    SubcomposeLayout(modifier.fillMaxSize()) { constraints ->
         val fullHeight = constraints.maxHeight.toFloat()
-
-        // Update anchors whenever the full height or sheet properties change
         val anchoredDraggableState = sheetState.anchoredDraggableState
 
-        Box(
-            Modifier
-                .align(Alignment.TopCenter) // We offset from the top, so we'll center from there
-                .widthIn(max = MaxModalBottomSheetWidth)
-                .fillMaxWidth()
-                .nestedScroll(
-                    remember(anchoredDraggableState) {
-                        ConsumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
-                            state = anchoredDraggableState,
-                            orientation = Orientation.Vertical
-                        )
-                    }
-                )
-                .offset {
-                    IntOffset(
-                        0,
-                        if (!anchoredDraggableState.offset.isNaN()) {
-                            // FIXED: Offset is coerced here, so bottom sheet does not overshoot
-                            // above the top line of the screen.
-                            anchoredDraggableState.offset.roundToInt()
-                        } else {
-                            fullHeight.roundToInt()
+        val sheetPlaceable = subcompose(Unit) {
+            Box(
+                Modifier
+                    .widthIn(max = MaxModalBottomSheetWidth)
+                    .fillMaxWidth()
+                    .nestedScroll(
+                        remember(anchoredDraggableState) {
+                            ConsumeSwipeWithinBottomSheetBoundsNestedScrollConnection(
+                                state = anchoredDraggableState,
+                                orientation = Orientation.Vertical
+                            )
                         }
                     )
-                }
-                .anchoredDraggable(
-                    state = anchoredDraggableState,
-                    orientation = Orientation.Vertical,
-                    enabled = sheetState.isVisible
-                )
-                .onSizeChanged { sheetSize ->
-                    // Update anchors based on the measured sheet size
-                    val sheetHeight = sheetSize.height.toFloat()
-
-                    val newAnchors = DraggableAnchors {
-                        Hidden at fullHeight
-                        if (sheetHeight >= fullHeight / 2f && !sheetState.skipHalfExpanded) {
-                            HalfExpanded at fullHeight / 2f
-                        }
-                        if (sheetHeight > 0) {
-                            Expanded at max(0f, fullHeight - sheetHeight)
-                        }
-                    }
-
-                    // Only update if anchors changed
-                    if (anchoredDraggableState.anchors != newAnchors) {
-                        anchoredDraggableState.updateAnchors(newAnchors)
-                    }
-                }
-                .semantics {
-                    if (sheetState.isVisible) {
-                        dismiss {
-                            onDismissRequest()
-                            true
-                        }
-                        if (sheetState.anchoredDraggableState.currentValue == HalfExpanded) {
-                            expand {
-                                scope.launch { sheetState.expand() }
-                                true
+                    .offset {
+                        IntOffset(
+                            0,
+                            if (!anchoredDraggableState.offset.isNaN()) {
+                                // FIXED: Offset is coerced here, so bottom sheet does not overshoot
+                                // above the top line of the screen.
+                                anchoredDraggableState.offset.roundToInt()
+                            } else {
+                                fullHeight.roundToInt()
                             }
-                        } else if (sheetState.hasHalfExpandedState) {
-                            collapse {
-                                scope.launch { sheetState.halfExpand() }
-                                true
+                        )
+                    }
+                    .anchoredDraggable(
+                        state = anchoredDraggableState,
+                        orientation = Orientation.Vertical,
+                        enabled = sheetState.isVisible
+                    )
+                    .onSizeChanged { sheetSize ->
+                        // Update anchors based on the measured sheet size
+                        val sheetHeight = sheetSize.height.toFloat()
+
+                        val newAnchors = DraggableAnchors {
+                            Hidden at fullHeight
+                            if (sheetHeight >= fullHeight / 2f && !sheetState.skipHalfExpanded) {
+                                HalfExpanded at fullHeight / 2f
+                            }
+                            if (sheetHeight > 0) {
+                                Expanded at max(0f, fullHeight - sheetHeight)
                             }
                         }
+
+                        // Only update if anchors changed
+                        if (anchoredDraggableState.anchors != newAnchors) {
+                            anchoredDraggableState.updateAnchors(newAnchors)
+                        }
                     }
-                },
-        ) {
-            sheetContent()
+                    .semantics {
+                        if (sheetState.isVisible) {
+                            dismiss {
+                                onDismissRequest()
+                                true
+                            }
+                            if (sheetState.anchoredDraggableState.currentValue == HalfExpanded) {
+                                expand {
+                                    scope.launch { sheetState.expand() }
+                                    true
+                                }
+                            } else if (sheetState.hasHalfExpandedState) {
+                                collapse {
+                                    scope.launch { sheetState.halfExpand() }
+                                    true
+                                }
+                            }
+                        }
+                    },
+                content = sheetContent
+            )
+        }.first().measure(constraints.copy(minWidth = 0, minHeight = 0))
+
+        layout(constraints.maxWidth, constraints.maxHeight) {
+            sheetPlaceable.place(
+                x = (constraints.maxWidth - sheetPlaceable.width) / 2,
+                y = 0
+            )
         }
     }
 }
