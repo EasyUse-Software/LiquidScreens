@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.1.2'
+    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.2.2'
 }
 ```
 
