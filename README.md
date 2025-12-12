@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.2.3'
+    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.2.2'
 }
 ```
 
@@ -133,13 +133,13 @@ Full documentation is available [here](https://easyusesoft.github.io/LiquidScree
 Library-specific `hiltViewModel()` implementation:
 
 ```kotlin
-implementation 'com.github.easyusesoft.LiquidScreens:reimagined-hilt:0.2.3'
+implementation 'com.github.easyusesoft.LiquidScreens:reimagined-hilt:0.2.2'
 ```
 
 `BottomSheetNavHost` implementation for Material 3:
 
 ```kotlin
-implementation 'com.github.easyusesoft.LiquidScreens:reimagined-material3:0.2.3'
+implementation 'com.github.easyusesoft.LiquidScreens:reimagined-material3:0.2.2'
 ```
 
 ## Sample
