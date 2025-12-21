@@ -1,9 +1,9 @@
 ## LiquidScreens, A maintained fork of Compose Navigation Reimagined
-![Monthly download statistics](https://jitpack.io/v/easyusesoft/LiquidScreens/month.svg)
+![Monthly download statistics](https://jitpack.io/v/EasyUse-Software/LiquidScreens/month.svg)
 
 ### This is a maintained fork of [Compose Navigation Reimagined](https://github.com/olshevski/compose-navigation-reimagined), only material3 is kept for low maintainence overhead. Deprecated apis are replaced in favor of newer apis and updated the packages to match with current jetpack compose library suite.
 
-Full Documentation: https://easyusesoft.github.io/LiquidScreens/
+Full Documentation: https://EasyUse-Software.github.io/LiquidScreens/
 
 ## Demo
 
@@ -42,7 +42,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation 'com.github.easyusesoft.LiquidScreens:reimagined:0.2.2'
+    implementation 'com.github.EasyUse-Software.LiquidScreens:reimagined:0.2.2'
 }
 ```
 
@@ -126,25 +126,25 @@ AnimatedNavHost(
 
 ## Documentation
 
-Full documentation is available [here](https://easyusesoft.github.io/LiquidScreens).
+Full documentation is available [here](https://EasyUse-Software.github.io/LiquidScreens).
 
 ## Additional dependencies
 
 Library-specific `hiltViewModel()` implementation:
 
 ```kotlin
-implementation 'com.github.easyusesoft.LiquidScreens:reimagined-hilt:0.2.2'
+implementation 'com.github.EasyUse-Software.LiquidScreens:reimagined-hilt:0.2.2'
 ```
 
 `BottomSheetNavHost` implementation for Material 3:
 
 ```kotlin
-implementation 'com.github.easyusesoft.LiquidScreens:reimagined-material3:0.2.2'
+implementation 'com.github.EasyUse-Software.LiquidScreens:reimagined-material3:0.2.2'
 ```
 
 ## Sample
 
-Explore the [sample](https://github.com/easyusesoft/LiquidScreens/tree/main/sample). It demonstrates:
+Explore the [sample](https://github.com/EasyUse-Software/LiquidScreens/tree/main/sample). It demonstrates:
 
 - passing values and returning results
 - animated transitions
